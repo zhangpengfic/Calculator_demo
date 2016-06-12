@@ -18,7 +18,7 @@ class CalculatorBrain {
         var description:String {
             get{
                 switch self {
-                case .Operand(let Operand):
+                case .Operand(let Operand): 
                     return "\(Operand)"
                 case .UnaryOperation(let Symbol, _):
                     return Symbol
