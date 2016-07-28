@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     var userIsInTheMiddleOfTypingANumber : Bool = false
-    var brain=CalculatorBrain()
+    
     
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
@@ -23,44 +23,38 @@ class ViewController: UIViewController {
             userIsInTheMiddleOfTypingANumber=true
         }
     }
-
+    
+    var displayValue : Double {
+        get{
+            return Double(display.text!)!
+        }
+        set{
+            display.text = String(newValue)
+        }
+    }
+    
+    var brain=CalculatorBrain()
+    
     @IBAction func operate(sender: UIButton) {
         
         if userIsInTheMiddleOfTypingANumber {
-            enter()
+            brain.setOperand(displayValue)
+            userIsInTheMiddleOfTypingANumber=false
         }
-        if let operation = sender.currentTitle {
-            if let result=brain.performOperation(operation){
-                displayValue = result
-            }else{
-                displayValue = 0
-            }
-            
+        if let mathematicalSymbol = sender.currentTitle {
+            brain.performOperation(mathematicalSymbol)
         }
+        
+        displayValue = brain.result
         
     }
     
     
     var operandStack = Array<Double>()
     
-    @IBAction func enter() {
-        userIsInTheMiddleOfTypingANumber = false
-        if let result=brain.pushOperand(displayValue){
-            displayValue=result
-        }else{
-            displayValue=0
-        }
-    }
+
     
-    var displayValue : Double {
-        get{
-            return (NSNumberFormatter().numberFromString(display.text!)!.doubleValue)
-        }
-        set{
-            display.text = "\(newValue)"
-            userIsInTheMiddleOfTypingANumber=false
-        }
-    }
+    
     
     
 }
