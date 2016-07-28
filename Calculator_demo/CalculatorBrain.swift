@@ -15,13 +15,20 @@ class CalculatorBrain {
     func setOperand(operand:Double){
         accumulater=operand
     }
-    var operations:Dictionary<String,Double> =  [
-        "℮":M_E
+    var operations:Dictionary<String,Operation> =  [
+        "℮":Operation.Constant(M_E)
     ]
+    
+    enum Operation {
+        case Constant(Double)
+    }
     
     func performOperation(symbol:String) {
         if let constant = operations[symbol] {
-            accumulater = constant
+            switch constant {
+            case .Constant(let value):accumulater = value
+            }
+            
         }
     }
     var result:Double{
