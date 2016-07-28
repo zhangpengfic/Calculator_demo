@@ -15,12 +15,13 @@ class CalculatorBrain {
     func setOperand(operand:Double){
         accumulater=operand
     }
+    var operations:Dictionary<String,Double> =  [
+        "℮":M_E
+    ]
     
     func performOperation(symbol:String) {
-        switch symbol {
-        case "℮":accumulater = M_E
-        case "√":accumulater=sqrt(accumulater)
-        default:break
+        if let constant = operations[symbol] {
+            accumulater = constant
         }
     }
     var result:Double{
