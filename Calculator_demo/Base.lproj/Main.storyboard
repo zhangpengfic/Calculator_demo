@@ -149,10 +149,18 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q6-5b-Uet">
                                 <rect key="frame" x="470" y="56" width="102" height="128"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="cos"/>
+                                <connections>
+                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D8V-nW-8kA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ce-wA-QkH">
                                 <rect key="frame" x="470" y="192" width="102" height="128"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="∏"/>
+                                <connections>
+                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRa-Lf-ZtY"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPW-nf-4to">
                                 <rect key="frame" x="470" y="328" width="102" height="128"/>
