@@ -8,10 +8,6 @@
 
 import Foundation
 
-func mutiply(op1:Double,op2:Double)->(Double){
-    return op1*op2
-}
-
 class CalculatorBrain {
     
     private var accumulater = 0.0
@@ -19,16 +15,19 @@ class CalculatorBrain {
     func setOperand(operand:Double){
         accumulater=operand
     }
-    var operations:Dictionary<String,Operation> =  [
+    private var operations:Dictionary<String,Operation> =  [
         "∏":Operation.Constant(M_PI),
         "℮":Operation.Constant(M_E),
         "√":Operation.UnaryOperation(sqrt),
         "cos":Operation.UnaryOperation(cos),
-        "×":Operation.BinaryOperation(mutiply),
+        "×":Operation.BinaryOperation{$0*$1},
+        "÷":Operation.BinaryOperation{$0/$1},
+        "+":Operation.BinaryOperation{$0+$1},
+        "−":Operation.BinaryOperation{$0-$1},
         "=":Operation.Equals
     ]
     
-    enum Operation {
+    private enum Operation {
         case Constant(Double)
         case UnaryOperation(Double->Double)
         case BinaryOperation((Double,Double)->Double)
@@ -40,12 +39,19 @@ class CalculatorBrain {
             switch constant {
             case.Constant(let value):accumulater = value
             case.UnaryOperation(let function):accumulater = function(accumulater)
-            case.BinaryOperation(let BinaryFunc):pending = PendingBinaryOperationInfo.init(binaryFunction: BinaryFunc, fristOperand: accumulater)
+            case.BinaryOperation(let BinaryFunc):
+                exeutePendingBinaryOperation()
+                pending = PendingBinaryOperationInfo.init(binaryFunction: BinaryFunc, fristOperand: accumulater)
             case.Equals:
-                if pending != nil {
-                    accumulater = pending!.binaryFunction(pending!.fristOperand, accumulater)
-                }
+                exeutePendingBinaryOperation()
+                
             }
+        }
+    }
+    
+    private func exeutePendingBinaryOperation(){
+        if pending != nil {
+            accumulater = pending!.binaryFunction(pending!.fristOperand, accumulater)
         }
     }
     
