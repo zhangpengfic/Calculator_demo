@@ -33,6 +33,20 @@ class ViewController: UIViewController {
         }
     }
     
+    var savedProgram : CalculatorBrain.PropertyList?
+    
+    @IBAction func save() {
+        savedProgram = brain.program
+    }
+    
+    @IBAction func restore() {
+        if savedProgram != nil {
+            brain.program=savedProgram!
+            displayValue = brain.result
+        }
+    }
+    
+    
     var brain=CalculatorBrain()
     
     @IBAction func operate(sender: UIButton) {
@@ -48,14 +62,6 @@ class ViewController: UIViewController {
         displayValue = brain.result
         
     }
-    
-    
-    var operandStack = Array<Double>()
-    
-
-    
-    
-    
     
 }
 

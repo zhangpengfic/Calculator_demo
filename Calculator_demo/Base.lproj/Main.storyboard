@@ -74,9 +74,9 @@
                                                         <rect key="frame" x="456" y="0.0" width="104" height="119"/>
                                                         <color key="backgroundColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="cos"/>
+                                                        <state key="normal" title="save"/>
                                                         <connections>
-                                                            <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D8V-nW-8kA"/>
+                                                            <action selector="save" destination="BYZ-38-t0r" eventType="touchUpInside" id="os1-So-VCO"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -124,9 +124,9 @@
                                                         <rect key="frame" x="456" y="0.0" width="104" height="119"/>
                                                         <color key="backgroundColor" red="0.70196078429999997" green="0.70196078429999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                        <state key="normal" title="∏"/>
+                                                        <state key="normal" title="restore"/>
                                                         <connections>
-                                                            <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRa-Lf-ZtY"/>
+                                                            <action selector="restore" destination="BYZ-38-t0r" eventType="touchUpInside" id="8vQ-qh-rg5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
